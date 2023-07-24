@@ -1,0 +1,48 @@
+@import '../../styles/constants';
+@import '../../styles/colors';
+
+.wrapper {
+  background-color: $blue-dark_transparent;
+  color: $white;
+  align-content: center;
+  opacity: 1;
+  transition: 1s linear;
+  cursor: pointer;
+  width: 200px;
+
+  &:hover {
+    opacity: 0.5;
+  }
+}
+
+.title {
+  @include set-font-size(18px, 20px, 400);
+  padding: 20px 0;
+}
+
+.value {
+  @include set-font-size(60px, 52px, 600);
+}
+
+@media screen and (max-width: $media-xl) { 
+  .title {
+    @include set-font-size(16px, 20px, 400);
+    padding: 20px 0;
+  }
+  
+  .value {
+    @include set-font-size(42px, 52px, 600);
+  }
+}
+
+@media screen and (max-width: 1040px) { 
+  .wrapper {
+    width: 140px;
+  }
+}
+
+@media screen and (max-width: 6500px) { 
+  .value {
+    @include set-font-size(35px, 52px, 600);
+  }
+}

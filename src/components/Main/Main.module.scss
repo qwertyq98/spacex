@@ -1,0 +1,236 @@
+@import '../../styles/constants';
+@import '../../styles/colors';
+
+.main {
+  display: grid;
+  gap: 0;
+  grid-template-columns: repeat(1, 300px 600px 400px);
+  max-width: $ui-width-vh - 600px;
+  width: 100%;
+  padding-top: $ui-height;
+  margin: 0 auto;
+  position: relative;
+  height: 650px;
+}
+
+.title {
+  padding-top: 120px;
+  @include set-font-size(52px, 20px, 600);
+}
+
+.subtitle {
+  padding-top: 10px;
+  @include set-font-size(20px, 20px, 400);
+}
+
+.button {
+  color: $white;
+  @include set-font-size(16px, 20px, 400);
+  margin-top: 220px;
+  padding: 5px 15px;
+  border: 3px solid;
+  border-image: linear-gradient(to bottom right, $black, $blue, $black) 1;
+  background-color: transparent;
+  cursor: pointer;
+  transition: 1s;
+  border-radius: $ui-border-radius;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+.mars {
+  width: 600px;
+  height: 450px;
+  position: absolute;
+  left: calc(50% - $ui-height);
+  transform: translate(-50%, -50%);
+  bottom: -100px;
+  z-index: 500;
+  filter: drop-shadow(20px 30px 20px $yellow) drop-shadow(30px 30px 30px $orange) drop-shadow(0px 0px $ui-height $red); 
+  transition: 1s;
+
+  &:hover {
+    filter: drop-shadow(20px 20px 10px $yellow) drop-shadow(20px 30px 20px $orange) drop-shadow(0px 0px 50px $red);
+  }
+}
+
+.info {
+  padding-top: $ui-height;
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(2, 200px);
+  text-align: center;
+  align-items: flex-start;
+  height: 500px;
+}
+
+.rocket, .rocket_start {
+  width: $ui-height;
+  height: 150px;
+  position: absolute;
+  left: calc(50% - $ui-height);
+  transform: translate(-50%, -50%);
+  bottom: $ui-height;
+  z-index: 1000;
+  filter:drop-shadow(5px 0 5px $blue-dark); 
+  transition: 3s;
+
+  &_start {
+    bottom: 400px;
+  }
+}
+
+@media screen and (max-width: $media-xl) {
+  .main {
+    grid-template-columns: repeat(1, 300px 300px 400px);
+    max-width: $ui-width-vh - 900px;
+  }
+  
+  .title {
+    padding-top: 90px;
+    @include set-font-size(42px, 20px, 600);
+  }
+  
+  .subtitle {
+    padding-top: 10px;
+    @include set-font-size(18px, 20px, 400);
+  }
+  
+  .mars {
+    width: 400px;
+    height: 300px;
+    left: calc(50% - $ui-height);
+    bottom: 90px;
+    filter: drop-shadow(10px 20px 20px $yellow) drop-shadow(20px 20px 20px $orange) drop-shadow(0px 0px 30px $red);
+  
+    &:hover {
+      filter: drop-shadow(10px 15px 10px $yellow) drop-shadow(20px 15px 10px $orange) drop-shadow(0px 0px 40px $red);
+    }
+  }
+  
+  .rocket, .rocket_start{
+    width: 40px;
+    height: 100px;
+    left: calc(50% - $ui-height);
+    bottom: 200px;
+
+    &_start {
+      bottom: 400px;
+    }
+  }
+}
+
+@media screen and (max-width: $media-l) { 
+  .main {
+    gap: 20px 0;
+    grid-template-columns: repeat(1, 300px 300px);
+    width: 100%;
+    padding-top: 0;
+    justify-content: center;
+    height: 450px;
+  }
+  
+  .title {
+    padding-top: 90px;
+    @include set-font-size(42px, 20px, 600);
+  }
+  
+  .subtitle {
+    padding-top: 10px;
+    @include set-font-size(18px, 20px, 400);
+  }
+  
+  .button {
+    margin-top: 200px;
+  }
+  
+  .mars {
+    left: calc(50% + 120px);
+    top: 200px;
+  }
+  
+  .rocket, .rocket_start {
+    left: calc(50% + 110px);
+    bottom: $ui-height;
+
+    &_start {
+      bottom: 270px;
+    }
+  }
+  
+  .info {
+    padding-top: $ui-height;
+    grid-column: span 2;
+    grid-template-columns: repeat(2, 140px);
+    text-align: center;
+    align-items: flex-start;
+    justify-content: space-between;
+    width: 300px;
+    justify-self: center;
+  }
+}
+
+@media screen and (max-width: $media-s) { 
+  .main {
+    display: flex;
+    flex-direction: column;
+    max-width: $media-s;
+    padding-top: 0;
+    height: 100%;
+    align-items: center;
+  }
+  
+  .title {
+    padding-top: 50px;
+    @include set-font-size(35px, 20px, 600);
+  }
+  
+  .subtitle {
+    padding-top: 10px;
+    @include set-font-size(16px, 20px, 400);
+  }
+  
+  .button {
+    margin-top: 300px;
+  }
+  
+  .mars {
+    width: 300px;
+    height: 220px;
+    position: relative;
+    right: 0;
+    left: 150px;
+    bottom: 0;
+    top: -220px;
+  }
+
+  .images {
+    height: 0px;
+  }
+  
+  .info {
+    padding-top: 0;
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(2, 140px);
+    text-align: center;
+    align-items: flex-start;
+    height: 500px;
+  }
+  
+  .rocket, .rocket_start {
+    width: 30px;
+    height: 80px;
+    right: 0;
+    left: -150px;
+    top: -300px;
+    bottom: $ui-height;
+    position: relative;
+
+    &_start {
+      top: -450px;
+    }
+  }
+}

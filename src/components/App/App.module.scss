@@ -1,0 +1,34 @@
+@import '../../styles/constants';
+@import '../../styles/colors';
+
+:root {
+  max-width: 1900px;
+  margin: 0 auto;
+}
+
+.container {
+  background-image: url('../../assets/space.jpg');
+  background-repeat: no-repeat;
+  background-position: 50% 0;
+  height: 100vh;
+  background-size: cover;
+  padding: 1px 20px 0;
+}
+
+.wrapper {
+  height: $ui-height;
+  border: 1px solid $gray;
+  max-width: $ui-width-vh;
+  width: 100%;
+  box-sizing: content-box;
+}
+
+@media screen and (max-width: $media-s) {
+  .wrapper {
+    height: $ui-height_s;
+  }
+
+  .container {
+    height: 950px;
+  }
+}

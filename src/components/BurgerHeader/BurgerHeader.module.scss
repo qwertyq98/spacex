@@ -1,0 +1,88 @@
+@import '../../styles/colors';
+@import '../../styles/constants';
+
+.burger {
+  display: none;
+  pointer-events: none;
+
+  &_active {
+    background-color: rgba(0,0,0,.3);
+    align-items: center;
+    bottom: 0;
+    color: $black;
+    display: flex;
+    justify-content: right;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    transition: visibility .3s linear,opacity .3s linear;
+    opacity: 1;
+    visibility: visible;
+    z-index: 1500;
+    pointer-events: all;
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    right: 0;
+    width: 520px;
+    height: 100vh;
+    background: $black;
+    align-items: center;
+    transform: translateX(100%);
+    animation: ani .5s forwards;
+  }
+
+  &__navigation {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 159px;
+    font-family: Inter,Arial,sans-serif;
+  }
+
+  &__closebutton {
+    background: url('../../assets/close.svg') no-repeat center;
+    width: 22px;
+    height: 22px;
+    padding: 0;
+    border: none;
+    margin: 22.44px 22.44px 0 0;
+    position: absolute;
+    top: 0;
+    cursor: pointer;
+    right: 0;
+  }
+}
+
+@keyframes ani {
+  0% {transform: translateX(100%);}
+  100% {transform: translateY(0);}
+}
+
+@media screen and (min-width: $media-m) {
+  .burger_active {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .burger {
+    &_active {
+      width: 100%;
+      height: 100vh;
+    }
+
+    &__navigation {
+      margin-top: 144px;
+    }
+
+    &__closebutton {
+      margin: 18px 18px 0 0;
+    }
+  }
+}

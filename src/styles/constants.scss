@@ -1,0 +1,43 @@
+%flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+%flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+%text-overflow-hidden {
+  overflow: hidden;
+  max-width: 100%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+// UI
+$ui-width-vh: 1900px;
+$ui-height: 70px;
+$ui-height_s: 50px;
+$ui-border-radius: 12px;
+
+$media-xl: 1340px;
+$media-l: 1040px;
+$media-m: 850px;
+$media-s: 650px;
+
+// MIXINS
+
+@mixin set-font-size($font, $line, $weight: 400) {
+  font-size: $font;
+  font-weight: $weight;
+  line-height: $line;
+}
+
+@mixin set-block-size($width, $height) {
+  @include set-font-size(14px, 16px, 600);
+
+  min-width: $width;
+  min-height: $height;
+  letter-spacing: -0.01rem;
+}
